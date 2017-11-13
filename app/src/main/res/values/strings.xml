@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">QuizApplication</string>
+    <string name="edtNewFirstName_str">First name</string>
+    <string name="edtNewPassword_str">Password</string>
+    <string name="edtNewLastName_str">Last Name</string>
+    <string name="edtNewBranch_str">Branch</string>
+    <string name="btn_sign_up_str">Sign up</string>
+    <string name="btn_sign_in_str">Sign in</string>
+    <string-array name="spnNewSelectUser_etr">
+        <item>Select Student or Examiner</item>
+        <item>Student</item>
+        <item>Examiner</item>
+    </string-array>
+
+    <string-array name="spnNewSemester_etr">
+        <item>Select Semester</item>
+        <item>I</item>
+        <item>II</item>
+        <item>III</item>
+        <item>IV</item>
+        <item>V</item>
+        <item>VI</item>
+        <item>VII</item>
+        <item>VIII</item>
+    </string-array>
+
+    <string-array name="spnNewSection_etr">
+        <item>Select Section</item>
+        <item>A</item>
+        <item>B</item>
+        <item>C</item>
+        <item>D</item>
+        <item>E</item>
+        <item>F</item>
+        <item>G</item>
+        <item>H</item>
+        <item>I</item>
+        <item>J</item>
+        <item>K</item>
+        <item>L</item>
+    </string-array>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="action_subject_str">Subject</string>
+    <string name="action_ranking_str">Ranking</string>
+</resources>
