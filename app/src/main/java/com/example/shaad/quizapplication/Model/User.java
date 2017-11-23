@@ -1,8 +1,7 @@
 package com.example.shaad.quizapplication.Model;
 
 public class User {
-    private String firstName;
-    private String lastName;
+    private String userName;
     private String userType;
     private String branch;
     private String password;
@@ -13,39 +12,32 @@ public class User {
     public User() {
     }
 
-    public User(String firstName, String lastName, String userType, String branch, String password, String semester, String section) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+    public User(String userName, String userType, String branch, String password, String semester, String section) {
+        this.userName = userName;
         this.userType = userType;
         this.branch = branch;
         this.password = password;
         this.semester = semester;
         this.section = section;
+
     }
 
-    public static User instaceOfStudent(String firstName, String lastName, String userType, String branch, String password, String semester, String section) {
-        return new User(firstName, lastName, userType, branch, password, semester, section);
+    public static User instaceOfStudent(String userName, String userType, String branch, String password, String semester, String section) {
+        return new User(userName, userType, branch, password, semester, section);
     }
 
-    public static User instanceOdExaminer(String firstName, String lastName, String userType, String branch, String password) {
-        return new User(firstName, lastName, userType, branch, password, "null", "null");
+    public static User instanceOdExaminer(String userName, String userType, String branch, String password) {
+        return new User(userName, userType, branch, password, "null", "null");
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getuserName() {
+        return userName;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setuserName(String userName) {
+        this.userName = userName;
     }
 
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
 
     public String getUserType() {
         return userType;
@@ -87,11 +79,11 @@ public class User {
         this.section = section;
     }
 
+
     @Override
     public String toString() {
         return "User{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
+                "userName='" + userName + '\'' +
                 ", userType='" + userType + '\'' +
                 ", branch='" + branch + '\'' +
                 ", password='" + password + '\'' +

@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">QuizApplication</string>
-    <string name="edtNewFirstName_str">First name</string>
+    <string name="edtNewuserName_str">Username </string>
     <string name="edtNewPassword_str">Password</string>
     <string name="edtNewLastName_str">Last Name</string>
     <string name="edtNewBranch_str">Branch</string>
@@ -41,6 +41,22 @@
     </string-array>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="action_subject_str">Subject</string>
+    <string name="action_subject_str">Subjects</string>
     <string name="action_ranking_str">Ranking</string>
+    <string name="action_profile_str">Profile</string>
+    <string name="userInstruction_str">
+        List of Instructions\n
+        1.\n
+        2.\n
+        3.\n
+        4.\n
+        5.\n
+    </string>
+    <string name="startTest_btn_str">Start Test</string>
+    <string name="userNote_str">Note:- Do not close app during the test.</string>
+    <string name="userSelectedSubject_str">Selected Subject:</string>
+    <string name="subjectName_str">Subject Name</string>
+    <string name="subjectCredit_str">Credit</string>
+    <string name="subjectCode_str">Subject Code</string>
+    <string name="eof_str">End of List</string>
 </resources>

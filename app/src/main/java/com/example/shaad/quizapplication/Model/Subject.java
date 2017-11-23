@@ -1,30 +1,52 @@
 package com.example.shaad.quizapplication.Model;
 
+import java.util.Map;
+
 public class Subject {
-    private String name;
-    private String code;
+    private String Name;
+    private String Code;
+    private String Credits;
+    private Map<String, QuestionBank> QuestionBank;
 
     public Subject() {
     }
 
-    public Subject(String name, String code) {
-        this.name = name;
-        this.code = code;
+    public Subject(String name, String code, String credits, Map<String, com.example.shaad.quizapplication.Model.QuestionBank> questionBank) {
+        Name = name;
+        Code = code;
+        Credits = credits;
+        QuestionBank = questionBank;
     }
 
     public String getName() {
-        return name;
+        return Name;
     }
 
     public void setName(String name) {
-        this.name = name;
+        Name = name;
     }
 
     public String getCode() {
-        return code;
+        return Code;
     }
 
     public void setCode(String code) {
-        this.code = code;
+        Code = code;
+    }
+
+    public String getCredits() {
+        return Credits;
+    }
+
+    public void setCredits(String credits) {
+        Credits = credits;
+    }
+
+    public Map<String, com.example.shaad.quizapplication.Model.QuestionBank> getQuestionBank() {
+        return QuestionBank;
+    }
+
+    public void setQuestionBank(Map<String, com.example.shaad.quizapplication.Model.QuestionBank> questionBank) {
+        QuestionBank = questionBank;
     }
 }

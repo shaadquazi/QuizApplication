@@ -8,13 +8,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 
-public class RankingFragment extends Fragment {
+public class ProfileFragment extends Fragment {
 
 
     View myFragment;
 
-    public static RankingFragment newInstance() {
-        return new RankingFragment();
+    public static ProfileFragment newInstance() {
+        return new ProfileFragment();
     }
 
     @Override
@@ -25,7 +25,7 @@ public class RankingFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        myFragment = inflater.inflate(R.layout.fragment_ranking, container, false);
+        myFragment = inflater.inflate(R.layout.fragment_profile, container, false);
 
         return myFragment;
     }

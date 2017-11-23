@@ -1,30 +1,32 @@
 package com.example.shaad.quizapplication;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 
-import com.google.firebase.database.ChildEventListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
+import com.example.shaad.quizapplication.Model.ItemClickListener;
+import com.example.shaad.quizapplication.Model.ProfileAccount;
+import com.example.shaad.quizapplication.Model.Subject;
+import com.example.shaad.quizapplication.Model.SubjectViewHolder;
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
-import java.util.ArrayList;
 
 
 public class SubjectFragment extends Fragment {
 
     View myFragment;
-    private ListView mSubjectList;
+    private FirebaseRecyclerAdapter<Subject, SubjectViewHolder> mSubjectListAdapter;
     private DatabaseReference mDatabase;
-    private ArrayList<String> mSubjects = new ArrayList<>();
+    private RecyclerView listSubject;
+    private LinearLayoutManager layoutManager;
 
 
     public static SubjectFragment newInstance() {
@@ -34,19 +36,17 @@ public class SubjectFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("Subjests");
-
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("SubjectTest");
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         myFragment = inflater.inflate(R.layout.fragment_subject, container, false);
-
-        mSubjectList = (ListView) myFragment.findViewById(R.id.listSubject);
-
+        listSubject = (RecyclerView) myFragment.findViewById(R.id.listSubject);
+        listSubject.setHasFixedSize(true);
+        layoutManager = new LinearLayoutManager(container.getContext());
+        listSubject.setLayoutManager(layoutManager);
 
         loadSubjects();
 
@@ -54,39 +54,30 @@ public class SubjectFragment extends Fragment {
     }
 
     private void loadSubjects() {
-        final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, mSubjects);
-
-        mSubjectList.setAdapter(arrayAdapter);
-        mDatabase.addChildEventListener(new ChildEventListener() {
+        mSubjectListAdapter = new FirebaseRecyclerAdapter<Subject, SubjectViewHolder>(Subject.class, R.layout.subject_row, SubjectViewHolder.class, mDatabase) {
             @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                String input = dataSnapshot.getValue(String.class);
-                mSubjects.add(input);
-                arrayAdapter.notifyDataSetChanged();
+            protected void populateViewHolder(SubjectViewHolder viewHolder, final Subject model, int position) {
 
+                viewHolder.subjectName.setText(model.getName());
+                viewHolder.subjectCredit.setText(model.getCredits());
+                viewHolder.subjectCode.setText(model.getCode());
+
+                viewHolder.setItemClickListener(new ItemClickListener() {
+                    @Override
+                    public void onClick(View view, int position, boolean isLongClick) {
+                        Intent toInstruction = new Intent(getActivity(), InstructionActivity.class);
+                        ProfileAccount.mSubjectId = mSubjectListAdapter.getRef(position).getKey();
+                        toInstruction.putExtra("subjectName", model.getName());
+                        startActivity(toInstruction);
+
+
+                    }
+                });
             }
 
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
 
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-
-
+        };
+        mSubjectListAdapter.notifyDataSetChanged();
+        listSubject.setAdapter(mSubjectListAdapter);
     }
 }

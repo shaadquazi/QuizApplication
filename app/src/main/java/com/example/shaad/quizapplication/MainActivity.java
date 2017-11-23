@@ -22,11 +22,11 @@ import com.rengwuxian.materialedittext.MaterialEditText;
 
 public class MainActivity extends AppCompatActivity {
     //for sign up
-    MaterialEditText edtNewFirstName, edtNewLastName, edtNewPassword, edtNewBranch;
+    MaterialEditText edtNewuserName, edtNewPassword, edtNewBranch;
     Spinner spnNewSelectUser, spnNewSemester, spnNewSection;
 
     //for sign in
-    MaterialEditText edtFirstName, edtPassword;
+    MaterialEditText edtuserName, edtPassword;
     Button btnSignin, btnSignup;
 
     DatabaseReference mDatabaseUsers;
@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
 
         mDatabaseUsers = FirebaseDatabase.getInstance().getReference("Users");
 
-        edtFirstName = (MaterialEditText) findViewById(R.id.edtFirstName);
+        edtuserName = (MaterialEditText) findViewById(R.id.edtuserName);
         edtPassword = (MaterialEditText) findViewById(R.id.edtPassword);
 
         btnSignin = (Button) findViewById(R.id.btn_sign_in);
@@ -71,9 +71,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
-                if (dataSnapshot.child(edtFirstName.getText().toString()).exists()) {
-                    if (!edtFirstName.getText().toString().isEmpty()) {
-                        User login = dataSnapshot.child(edtFirstName.getText().toString()).getValue(User.class);
+                if (dataSnapshot.child(edtuserName.getText().toString()).exists()) {
+                    if (!edtuserName.getText().toString().isEmpty()) {
+                        User login = dataSnapshot.child(edtuserName.getText().toString()).getValue(User.class);
                         if (login.getPassword().equals(edtPassword.getText().toString())) {
 
 
@@ -106,8 +106,7 @@ public class MainActivity extends AppCompatActivity {
             LayoutInflater layoutInflater = getLayoutInflater();
             View sign_up_layout = layoutInflater.inflate(R.layout.layout_sign_up, null);
 
-            edtNewFirstName = (MaterialEditText) sign_up_layout.findViewById(R.id.edtNewFirstName);
-            edtNewLastName = (MaterialEditText) sign_up_layout.findViewById(R.id.edtNewLastName);
+            edtNewuserName = (MaterialEditText) sign_up_layout.findViewById(R.id.edtNewuserName);
             edtNewPassword = (MaterialEditText) sign_up_layout.findViewById(R.id.edtNewPassword);
             edtNewBranch = (MaterialEditText) sign_up_layout.findViewById(R.id.edtNewBranch);
 
@@ -129,26 +128,27 @@ public class MainActivity extends AppCompatActivity {
                     .setPositiveButton("YES", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-
                             if (spnNewSelectUser.getSelectedItem().toString().equals("Student")) {
-                                user = User.instaceOfStudent(edtNewFirstName.getText().toString(),
-                                        edtNewLastName.getText().toString(), spnNewSelectUser.getSelectedItem().toString(),
+                                user = User.instaceOfStudent(edtNewuserName.getText().toString(),
+                                        spnNewSelectUser.getSelectedItem().toString(),
                                         edtNewBranch.getText().toString(), edtNewPassword.getText().toString(),
                                         spnNewSemester.getSelectedItem().toString(), spnNewSection.getSelectedItem().toString());
                             } else {
-                                user = User.instanceOdExaminer(edtNewFirstName.getText().toString(), edtNewLastName.getText().toString(),
+                                user = User.instanceOdExaminer(edtNewuserName.getText().toString(),
                                         spnNewSelectUser.getSelectedItem().toString(), edtNewBranch.getText().toString(),
                                         edtNewPassword.getText().toString());
                             }
-
                             mDatabaseUsers.addListenerForSingleValueEvent(new ValueEventListener() {
                                 @Override
                                 public void onDataChange(DataSnapshot dataSnapshot) {
 
-                                    if (dataSnapshot.child(user.getFirstName()).exists()) {
+
+                                    if (dataSnapshot.child(user.getuserName()).exists()) {
+
+
                                         Toast.makeText(getApplicationContext(), "User Already Exist", Toast.LENGTH_LONG).show();
                                     } else {
-                                        mDatabaseUsers.child(user.getFirstName()).setValue(user);
+                                        mDatabaseUsers.child(user.getuserName()).setValue(user);
                                         Toast.makeText(getApplicationContext(), "User Registration Completed", Toast.LENGTH_LONG).show();
                                     }
 

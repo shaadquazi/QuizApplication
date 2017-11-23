@@ -13,10 +13,10 @@
         android:padding="4dp">
 
         <com.rengwuxian.materialedittext.MaterialEditText
-            android:id="@+id/edtNewFirstName"
+            android:id="@+id/edtNewuserName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/edtNewFirstName_str"
+            android:hint="@string/edtNewuserName_str"
             android:inputType="textPersonName"
             android:textColor="@color/colorPrimary"
             android:textColorHint="@color/colorPrimary"
@@ -26,19 +26,6 @@
             app:met_primaryColor="@color/colorPrimary"
             app:met_singleLineEllipsis="true" />
 
-        <com.rengwuxian.materialedittext.MaterialEditText
-            android:id="@+id/edtNewLastName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/edtNewLastName_str"
-            android:inputType="textPersonName"
-            android:textColor="@color/colorPrimary"
-            android:textColorHint="@color/colorPrimary"
-            android:textSize="24sp"
-            app:met_baseColor="@color/colorPrimary"
-            app:met_floatingLabel="highlight"
-            app:met_primaryColor="@color/colorPrimary"
-            app:met_singleLineEllipsis="true" />
 
         <com.rengwuxian.materialedittext.MaterialEditText
             android:id="@+id/edtNewPassword"

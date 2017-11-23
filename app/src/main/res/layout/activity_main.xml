@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    android:background="@color/colorPrimary"
+    android:background="@mipmap/bg_vertical"
     tools:context="com.example.shaad.quizapplication.MainActivity">
 
     <LinearLayout
@@ -44,10 +44,10 @@
                 tools:layout_editor_absoluteY="0dp">
 
                 <com.rengwuxian.materialedittext.MaterialEditText
-                    android:id="@+id/edtFirstName"
+                    android:id="@+id/edtuserName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/edtNewFirstName_str"
+                    android:hint="@string/edtNewuserName_str"
                     android:inputType="textPersonName"
                     android:textColor="@color/colorPrimary"
                     android:textColorHint="@color/colorPrimary"

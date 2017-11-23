@@ -27,8 +27,8 @@ public class HomeActivity extends AppCompatActivity {
                     case R.id.action_subject:
                         selectedFragment = SubjectFragment.newInstance();
                         break;
-                    case R.id.action_ranking:
-                        selectedFragment = RankingFragment.newInstance();
+                    case R.id.action_profile:
+                        selectedFragment = ProfileFragment.newInstance();
                         break;
                 }
 
@@ -45,7 +45,7 @@ public class HomeActivity extends AppCompatActivity {
 
     private void setDefaultFragment() {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.layout_home_frame, SubjectFragment.newInstance());
+        fragmentTransaction.replace(R.id.layout_home_frame, ProfileFragment.newInstance());
         fragmentTransaction.commit();
     }
 }
