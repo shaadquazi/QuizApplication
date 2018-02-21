@@ -6,18 +6,34 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.example.shaad.quizapplication.Model.Subject;
 
 public class InstructionActivity extends AppCompatActivity {
     TextView userSelectedSubject;
     Button startTest_btn;
+
+
+    Subject subject;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_instruction);
 
-        setTopTextViewWithSubject();
+
+        Intent instructionIntent = getIntent();
+        subject = (Subject) instructionIntent.getSerializableExtra("subjectObject");
+        userSelectedSubject = (TextView) findViewById(R.id.userSelectedSubject);
+        userSelectedSubject.setText(subject.getName());
+
+
+
+
+
         startTest_btn = (Button) findViewById(R.id.startTest_btn);
         startTest_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -28,14 +44,15 @@ public class InstructionActivity extends AppCompatActivity {
 
     }
 
-    private void startTest_btn_Clicked() {
-        Toast.makeText(this, "Button Clicked", Toast.LENGTH_SHORT).show();
-    }
 
-    private void setTopTextViewWithSubject() {
-        Intent instructionIntent = getIntent();
-        userSelectedSubject = (TextView) findViewById(R.id.userSelectedSubject);
-        userSelectedSubject.setText("Selected Subject\n" + instructionIntent.getSerializableExtra("subjectName"));
+    private void startTest_btn_Clicked() {
+
+        Intent startTest = new Intent(InstructionActivity.this, TestActivity.class);
+        startTest.putExtra("subjectObject", subject);
+        startActivity(startTest);
+        finish();
+        //submit test here
+        //go to test result
     }
 
 

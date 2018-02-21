@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.shaad.quizapplication.TestActivity">
+
+    <TextView
+        android:id="@+id/timeCount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="12sp"
+        android:text="@string/timeCount_str"
+        android:textAlignment="center"
+        android:textSize="22sp" />
+
+    <RelativeLayout
+        android:id="@+id/questionSpace"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/timeCount"
+        android:layout_margin="8dp"
+        android:padding="4dp">
+
+        <TextView
+            android:id="@+id/textQuestion"
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:gravity="center" />
+
+        <ImageView
+            android:id="@+id/imageQuestion"
+            android:layout_width="300dp"
+            android:layout_height="200dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerInParent="true"
+            android:contentDescription="@string/imageQuestion_desc"
+            android:foregroundGravity="center"
+            android:visibility="invisible" />
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/questionDashboard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/questionSpace"
+        android:layout_margin="4dp"
+        android:orientation="horizontal"
+        android:padding="4dp">
+
+        <TextView
+            android:id="@+id/totalScore"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/totalScore_str"
+            android:textAlignment="center"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/totalQuestion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/totalQuestion_str"
+            android:textAlignment="center"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+    <RadioGroup
+        android:id="@+id/allOptions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/questionDashboard"
+        android:layout_margin="12dp">
+
+        <RadioButton
+            android:id="@+id/optionA"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:buttonTint="@android:color/white"
+            android:text="@string/optionA_str"
+            android:textColor="@android:color/white" />
+
+        <RadioButton
+            android:id="@+id/optionB"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:buttonTint="@android:color/white"
+            android:text="@string/optionB_str"
+            android:textColor="@android:color/white" />
+
+        <RadioButton
+            android:id="@+id/optionC"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:buttonTint="@android:color/white"
+            android:text="@string/optionC_str"
+            android:textColor="@android:color/white" />
+
+        <RadioButton
+            android:id="@+id/optionD"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:buttonTint="@android:color/white"
+            android:text="@string/optionD_str"
+            android:textColor="@android:color/white" />
+
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/exit"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:text="@string/exit_str" />
+
+
+</RelativeLayout>

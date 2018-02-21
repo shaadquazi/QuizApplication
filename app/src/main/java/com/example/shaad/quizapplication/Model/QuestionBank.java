@@ -1,26 +1,29 @@
 package com.example.shaad.quizapplication.Model;
 
+import java.io.Serializable;
 
-public class QuestionBank {
+public class QuestionBank implements Serializable {
     private String CorrectAnswer;
     private String ImageQuestion;
     private String Option1;
     private String Option2;
     private String Option3;
     private String Option4;
-    private String QuesstionText;
+    private String QuestionText;
+
+    //subjectCode
 
     public QuestionBank() {
     }
 
-    public QuestionBank(String correctAnswer, String imageQuestion, String option1, String option2, String option3, String option4, String quesstionText) {
+    public QuestionBank(String correctAnswer, String imageQuestion, String option1, String option2, String option3, String option4, String questionText) {
         CorrectAnswer = correctAnswer;
         ImageQuestion = imageQuestion;
         Option1 = option1;
         Option2 = option2;
         Option3 = option3;
         Option4 = option4;
-        QuesstionText = quesstionText;
+        QuestionText = questionText;
     }
 
     public String getCorrectAnswer() {
@@ -71,11 +74,11 @@ public class QuestionBank {
         Option4 = option4;
     }
 
-    public String getQuesstionText() {
-        return QuesstionText;
+    public String getQuestionText() {
+        return QuestionText;
     }
 
-    public void setQuesstionText(String quesstionText) {
-        QuesstionText = quesstionText;
+    public void setQuestionText(String questionText) {
+        QuestionText = questionText;
     }
 }

@@ -12,12 +12,14 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.shaad.quizapplication.Model.ItemClickListener;
-import com.example.shaad.quizapplication.Model.ProfileAccount;
+import com.example.shaad.quizapplication.Model.QuestionBank;
 import com.example.shaad.quizapplication.Model.Subject;
 import com.example.shaad.quizapplication.Model.SubjectViewHolder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.Map;
 
 
 public class SubjectFragment extends Fragment {
@@ -58,19 +60,25 @@ public class SubjectFragment extends Fragment {
             @Override
             protected void populateViewHolder(SubjectViewHolder viewHolder, final Subject model, int position) {
 
-                viewHolder.subjectName.setText(model.getName());
-                viewHolder.subjectCredit.setText(model.getCredits());
-                viewHolder.subjectCode.setText(model.getCode());
+
+                String name = model.getName();
+                String credit = model.getCredits();
+                String code = model.getCode();
+                Map<String, QuestionBank> questionBankMap = model.getQuestionBank();
+
+                final Subject subject = new Subject(name, code, credit, questionBankMap);
+
+
+                viewHolder.subjectName.setText(subject.getName());
+                viewHolder.subjectCredit.setText(subject.getCredits());
+                viewHolder.subjectCode.setText(subject.getCode());
 
                 viewHolder.setItemClickListener(new ItemClickListener() {
                     @Override
                     public void onClick(View view, int position, boolean isLongClick) {
                         Intent toInstruction = new Intent(getActivity(), InstructionActivity.class);
-                        ProfileAccount.mSubjectId = mSubjectListAdapter.getRef(position).getKey();
-                        toInstruction.putExtra("subjectName", model.getName());
+                        toInstruction.putExtra("subjectObject", subject);
                         startActivity(toInstruction);
-
-
                     }
                 });
             }

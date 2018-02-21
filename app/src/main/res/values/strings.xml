@@ -59,4 +59,20 @@
     <string name="subjectCredit_str">Credit</string>
     <string name="subjectCode_str">Subject Code</string>
     <string name="eof_str">End of List</string>
+    <string name="alertDialog_title">Sign Up</string>
+    <string name="alertDialog_msg">Please Fill in the Details</string>
+    <string name="timeLeft_str">Time Left :</string>
+    <string name="timeCount_str"> Time Remaining : </string>
+    <string name="imageQuestion_desc">Image Question</string>
+    <string name="totalScore_str">Total Score : </string>
+    <string name="totalQuestion_str">Total Question : 1/100</string>
+    <string name="optionA_str">optionA</string>
+    <string name="optionB_str">optionB</string>
+    <string name="optionC_str">optionC</string>
+    <string name="optionD_str">optionD</string>
+    <string name="exit_str">Quit</string>
+    <string name="finish_msg">Time Up!</string>
+    <string name="previous_str">Prev</string>
+    <string name="next_str">Next</string>
+    <string name="tryAgain_btn_str">Go to Home!</string>
 </resources>
