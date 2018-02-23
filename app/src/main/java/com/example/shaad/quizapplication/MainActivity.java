@@ -23,8 +23,8 @@ import com.rengwuxian.materialedittext.MaterialEditText;
 
 public class MainActivity extends AppCompatActivity {
     //for sign up
-    MaterialEditText edtNewuserName, edtNewPassword, edtNewBranch;
-    Spinner spnNewSelectUser, spnNewSemester, spnNewSection;
+    MaterialEditText edtNewuserName, edtNewPassword;
+    Spinner spnNewSelectUser, spnNewSemester, spnNewBranch,spnNewSection;
 
     //for sign in
     MaterialEditText edtuserName, edtPassword;
@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
 
         edtNewuserName = (MaterialEditText) sign_up_layout.findViewById(R.id.edtNewuserName);
         edtNewPassword = (MaterialEditText) sign_up_layout.findViewById(R.id.edtNewPassword);
-        edtNewBranch = (MaterialEditText) sign_up_layout.findViewById(R.id.edtNewBranch);
+        spnNewBranch = (Spinner) sign_up_layout.findViewById(R.id.spnNewBranch);
         spnNewSelectUser = (Spinner) sign_up_layout.findViewById(R.id.spnNewSelectUser);
         spnNewSemester = (Spinner) sign_up_layout.findViewById(R.id.spnNewSemester);
         spnNewSection = (Spinner) sign_up_layout.findViewById(R.id.spnNewSection);
@@ -111,23 +111,23 @@ public class MainActivity extends AppCompatActivity {
                 .setView(sign_up_layout)
                 .setIcon(R.drawable.ic_account_circle_black_24dp)
                 .setMessage(res.getString(R.string.alertDialog_msg))
-                .setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();
                     }
                 })
-                .setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                .setPositiveButton("Sign Up", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         if (spnNewSelectUser.getSelectedItem().toString().equals("Student")) {
                             user = User.instaceOfStudent(edtNewuserName.getText().toString(),
                                     spnNewSelectUser.getSelectedItem().toString(),
-                                    edtNewBranch.getText().toString(), edtNewPassword.getText().toString(),
+                                    spnNewBranch.getSelectedItem().toString(), edtNewPassword.getText().toString(),
                                     spnNewSemester.getSelectedItem().toString(), spnNewSection.getSelectedItem().toString());
                         } else {
                             user = User.instanceOdExaminer(edtNewuserName.getText().toString(),
-                                    spnNewSelectUser.getSelectedItem().toString(), edtNewBranch.getText().toString(),
+                                    spnNewSelectUser.getSelectedItem().toString(), spnNewBranch.getSelectedItem().toString(),
                                     edtNewPassword.getText().toString());
                         }
                         mDatabaseUsers.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -151,7 +151,6 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
         alertDialog.show();
-        //setLayoutonFragment();
 
     }
 

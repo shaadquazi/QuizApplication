@@ -1,16 +1,133 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@mipmap/bg_vertical"
     tools:context="com.example.shaad.quizapplication.ProfileFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
+        android:id="@+id/USER"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment"
-        android:textColor="@android:color/white"
-        android:textSize="24sp" />
+        android:layout_height="wrap_content">
 
-</FrameLayout>
+        <TextView
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginTop="12dp"
+            android:id="@+id/user_details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Your Details"
+            android:textColor="@android:color/white"
+            android:textSize="24sp"
+            android:padding="2dp"/>
+
+        <LinearLayout
+            android:id="@+id/line_1"
+            android:layout_below="@id/user_details"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginTop="12dp">
+
+            <TextView
+                android:id="@+id/user_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="name"
+                android:textColor="@android:color/white"
+                android:layout_weight="1"
+                android:textSize="19sp"
+                android:padding="2dp"/>
+
+            <TextView
+                android:id="@+id/user_type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="account type"
+                android:textColor="@android:color/white"
+                android:layout_weight="1"
+                android:textSize="19sp"
+                android:padding="2dp"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/line_2"
+            android:layout_below="@id/line_1"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginTop="12dp">
+
+            <TextView
+                android:id="@+id/user_branch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="branch"
+                android:textColor="@android:color/white"
+                android:layout_weight="1"
+                android:textSize="19sp"
+                android:padding="2dp"/>
+
+            <TextView
+                android:id="@+id/user_semester"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="semester"
+                android:textColor="@android:color/white"
+                android:layout_weight="1"
+                android:textSize="19sp"
+                android:padding="2dp"/>
+
+            <TextView
+                android:id="@+id/user_section"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="section"
+                android:textColor="@android:color/white"
+                android:layout_weight="1"
+                android:textSize="19sp"
+                android:padding="2dp"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/RANK"
+        android:layout_below="@+id/USER"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginTop="12dp"
+            android:id="@+id/globalRanking"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Global Ranking"
+            android:textColor="@android:color/white"
+            android:textSize="24sp"
+            android:padding="2dp"/>
+
+        <TextView
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginTop="12dp"
+            android:layout_below="@id/globalRanking"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Coming soon!"
+            android:textColor="@android:color/white"
+            android:textSize="19sp"
+            android:padding="2dp"/>
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

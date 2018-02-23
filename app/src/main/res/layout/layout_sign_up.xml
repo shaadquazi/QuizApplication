@@ -41,19 +41,12 @@
             app:met_primaryColor="@color/colorPrimary"
             app:met_singleLineEllipsis="true" />
 
-        <com.rengwuxian.materialedittext.MaterialEditText
-            android:id="@+id/edtNewBranch"
+        <Spinner
+            android:id="@+id/spnNewBranch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/edtNewBranch_str"
-            android:inputType="textPersonName"
-            android:textColor="@color/colorPrimary"
-            android:textColorHint="@color/colorPrimary"
-            android:textSize="24sp"
-            app:met_baseColor="@color/colorPrimary"
-            app:met_floatingLabel="highlight"
-            app:met_primaryColor="@color/colorPrimary"
-            app:met_singleLineEllipsis="true" />
+            android:layout_marginTop="8dp"
+            android:entries="@array/spnNewBranch_etr" />
 
         <Spinner
             android:id="@+id/spnNewSelectUser"

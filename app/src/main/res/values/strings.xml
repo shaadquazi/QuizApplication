@@ -1,9 +1,8 @@
 <resources>
     <string name="app_name">QuizApplication</string>
-    <string name="edtNewuserName_str">Username </string>
+    <string name="edtNewuserName_str">Name </string>
     <string name="edtNewPassword_str">Password</string>
     <string name="edtNewLastName_str">Last Name</string>
-    <string name="edtNewBranch_str">Branch</string>
     <string name="btn_sign_up_str">Sign up</string>
     <string name="btn_sign_in_str">Sign in</string>
     <string-array name="spnNewSelectUser_etr">
@@ -22,6 +21,16 @@
         <item>VI</item>
         <item>VII</item>
         <item>VIII</item>
+    </string-array>
+
+    <string-array name="spnNewBranch_etr">
+        <item>Select Branch</item>
+        <item>CSE</item>
+        <item>IT</item>
+        <item>MECH</item>
+        <item>CIVIL</item>
+        <item>ETC</item>
+        <item>ETRX</item>
     </string-array>
 
     <string-array name="spnNewSection_etr">
@@ -59,7 +68,7 @@
     <string name="subjectCredit_str">Credit</string>
     <string name="subjectCode_str">Subject Code</string>
     <string name="eof_str">End of List</string>
-    <string name="alertDialog_title">Sign Up</string>
+    <string name="alertDialog_title">Registration</string>
     <string name="alertDialog_msg">Please Fill in the Details</string>
     <string name="timeLeft_str">Time Left :</string>
     <string name="timeCount_str"> Time Remaining : </string>
